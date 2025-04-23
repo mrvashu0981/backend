@@ -21,7 +21,7 @@ app.add_middleware(
 )
 
 
-@app.get('/')
+@app.get('https://frontend-three-gamma-45.vercel.app/')
 async def root():
     return {"message": "Server is running"}
 
