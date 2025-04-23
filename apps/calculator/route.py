@@ -12,9 +12,13 @@ async def run(data: ImageData):
     image_data = base64.b64decode(data.image.split(",")[1])  # Assumes data:image/png;base64,<data>
     image_bytes = BytesIO(image_data)
     image = Image.open(image_bytes)
+    
     responses = analyze_image(image, dict_of_vars=data.dict_of_vars)
-    data = []
+    
+    data_list = []
     for response in responses:
-        data.append(response)
-    print('response in route: ', response)
-    return {"message": "Image processed", "data": data, "status": "success"}
+        data_list.append(response)
+    
+    print('responses in route: ', data_list)
+    
+    return {"message": "Image processed", "data": data_list, "status": "success"}
