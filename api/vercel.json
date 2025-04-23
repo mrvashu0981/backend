@@ -2,14 +2,14 @@
     "devCommand": "uvicorn main:app --host 0.0.0.0 --port 8900",
     "builds": [
       {
-        "src": "calc-be-main/main.py",
+        "src": "api/main.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "calc-be-main/main.py"
+        "dest": "api/main.py"
       }
     ]
   }
